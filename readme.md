@@ -91,36 +91,39 @@ Covers how to compare files at different points in time, and restore files to th
 ![alt text](images/1.2.git-diff-summary.png)
 
 - Comparing staged files  
-    git diff report.md :compare the last committed version of report with a modified version that is not in the staging area.
+    git diff report.md :compare the last committed version of report with a modified version that is unstaged.
     ![alt text](images/1.2.version-history.png)
-    The highlighted line shows the comparison of what changed between the two versions. The minus 1 and 5 indicate that version A starts at line 1 and has 5 lines, and the plus 1 and 5 show that version B also starts at line 1 and has 5 lines. 
+    The line in light blue font shows the comparison of what changed between the two versions. The minus 0 and 0 indicate that version A starts at line 0 and has 0 lines, and the plus 1 and 78 show that version B starts at line 1 and has 78 lines.
 
     git diff --staged report.md :compare the last committed version of report with a modified version that is in the staging area.
     git diff --staged :compare the last committed version of report with all staged files.
 
 - Comparing to the second most recent commit
-    git diff version-B version-A
+    git diff commit-id-B commit-id-A
     git diff HEAD~1 HEAD
+
 - Restoring and reverting files  
-    Used to resolve problems.
-    git revert : reinstated the revious versions and makes a commit. Restores all files updated in the given commit. 
-    git revert HEAD : Save and exit using Crtl+O Enter Crtl +X 
-    git revert --no-edit HEAD :avoid opening text editor
-    git revert -n HEAD : Revert without committing (brings files to staging area) -n = no commit
-    git revert works on commits, not individual files.
+    Used to resolve problems by restoring to previous version.
+
+    git revert : reinstates the previous versions and makes a commit with older versions. Restores all files updated in the given commit.
+    The git revert works on commits, not individual files.
+
     git checkout :To revert a single file
-    git checkout HEAD~1 --report.md
-    to unstage single file:
-    git restore --staged summary_statistics.cvs
-    git restore --staged :remove all fules from the staging area
+    git checkout HEAD~1 --report.md  :To unstage single file. Then commit the new file.
+
+    git restore: To unstage a single file
 
     ![Summary of unstaging](images/1.2.git-revert-summary.png)
 
 - Unstaging a file  
-
+    git restore --staged summary_statistics.cvs
+    git restore --staged :remove all files from the staging area
 
 - Reverting a commit
-
+    git revert HEAD : Restoring to last commit. Opens as text editor Save and exit using Crtl+O Enter Crtl +X.
+    git revert --no-edit HEAD :avoid opening text editor
+    git revert -n HEAD : Revert without committing (brings files to staging area) -n = no commit
+    
 ---
 
 
