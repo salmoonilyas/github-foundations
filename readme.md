@@ -103,23 +103,107 @@ Covers how to compare files at different points in time, and restore files to th
     git diff HEAD~1 HEAD
 - Restoring and reverting files  
     Used to resolve problems.
-    git revert : reinstated the revious versions and makes a commit. Restores all files updated in the given commit. 
-    git revert HEAD : Save and exit using Crtl+O Enter Crtl +X 
+    git revert : reinstated the revious versions and makes a commit. Restores all files updated in the given commit.
+
+- Unstaging a file  
+    to unstage single file:
+    git restore --staged summary_statistics.cvs
+    git restore --staged :remove all fules from the staging area
+
+- Reverting a commit
+    git revert HEAD : Save and exit using Crtl+O Enter Crtl +X
     git revert --no-edit HEAD :avoid opening text editor
     git revert -n HEAD : Revert without committing (brings files to staging area) -n = no commit
     git revert works on commits, not individual files.
     git checkout :To revert a single file
     git checkout HEAD~1 --report.md
-    to unstage single file:
-    git restore --staged summary_statistics.cvs
-    git restore --staged :remove all fules from the staging area
 
     ![Summary of unstaging](images/1.2.git-revert-summary.png)
 
-- Unstaging a file  
+---
+
+2. Intermediate Git
+
+---
+
+## 2.1 Introduction to Git  
+
+---
+
+## 1. Branches in Git  
+Discover the concept of branches in Git, enabling continuous development and integration of code to drive your software and data projects forward!
+
+- **Introduction to branches**  
+Default branch => main
+
+git branch : To view the branch
+git switch main :-Switch to main branch
+
+- **Creating new branches**  
+git branch new-branch-1 :Creates a new branch
+git switch -c new-branch-2 :Creates a new branch and switch to it
+
+:memo:  **Note:** when we create a new branch, it is common to say that we are "branching off". If we create the speed-test branch from the main branch, then we are branching off main.
+
+- **Checking the number of branches**  
+git branch : To view the number of branches
+
+- **Modifying and comparing branches**  
+- **Renaming branches**  
+git branch -m feature_dev chatbot
+
+- **Deleting branches**  
+- git branch -d chatbot
+:memo: **Note:** If we haven't merged the chatbot branch into main the -d flag will produce an error. If we still want to delete this branch, we run the same command but use an uppercase -D flag instead. We see the same output. Beware though, that while we can recover deleted branches, it's not easy. So, we should make sure we are confident that we won't need the branch later before deleting it.
+
+- **Comparing branches**  
+git diff commitid1 commitid2
+
+- **Merging branches**  
 
 
-- Reverting a commit
+- **Merging two branches**  
+git switch main
+git merge source-ai-asssitant
+git merge source-ai-assistant main
+
+- **Correctly using branches**  
+--
+
+---
+
+## 2. Collaborating with Git  
+Discover how to use Git for collaborative projects, handling merge conflicts, and synchronizing your local repos with remotes!
+
+- **Merge conflicts**  
+--
+- **Reducing the risk of conflict**  
+--
+- **Resolving a merge conflict** 
+-# Open the conflicting file
+nano README.md
+
+-# Resolve conflict by editing the file
+-# Save and exit
+-# Save: Control + O, Enter
+-# Exit: Control + X
+
+-# Stage the resolved file
+git add README.md
+-# Commit the changes
+git commit -m "Resolved merge conflict in README"
+
+images/2.2-resolving-conflict.png
+
+- **Introduction to remotes**  
+- **Cloning a repo**  
+- **Defining and identifying remotes**  
+- **Pulling from remotes**  
+- **Fetching from a remote**  
+- **Pulling from a remote**  
+- **Pushing to remotes**  
+- **Pushing to a remote**  
+- **Congratulations**  
 
 ---
 
@@ -145,9 +229,12 @@ Covers how to compare files at different points in time, and restore files to th
 
 
 
-1. Intermediate Git
 
-2. Introduction to Github Concepts
+
+
+
+
+1. Introduction to Github Concepts
 
 Introduction to GitHub Products: A Complete Guide
 
