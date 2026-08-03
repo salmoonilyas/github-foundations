@@ -91,16 +91,17 @@ Covers how to compare files at different points in time, and restore files to th
 ![alt text](images/1.2.git-diff-summary.png)
 
 - Comparing staged files  
-    git diff report.md :compare the last committed version of report with a modified version that is not in the staging area.
+    git diff report.md :compare the last committed version of report with a modified version that is unstaged.
     ![alt text](images/1.2.version-history.png)
-    The highlighted line shows the comparison of what changed between the two versions. The minus 1 and 5 indicate that version A starts at line 1 and has 5 lines, and the plus 1 and 5 show that version B also starts at line 1 and has 5 lines. 
+    The line in light blue font shows the comparison of what changed between the two versions. The minus 0 and 0 indicate that version A starts at line 0 and has 0 lines, and the plus 1 and 78 show that version B starts at line 1 and has 78 lines.
 
     git diff --staged report.md :compare the last committed version of report with a modified version that is in the staging area.
     git diff --staged :compare the last committed version of report with all staged files.
 
 - Comparing to the second most recent commit
-    git diff version-B version-A
+    git diff commit-id-B commit-id-A
     git diff HEAD~1 HEAD
+
 - Restoring and reverting files  
     Used to resolve problems.
     git revert : reinstated the revious versions and makes a commit. Restores all files updated in the given commit.
